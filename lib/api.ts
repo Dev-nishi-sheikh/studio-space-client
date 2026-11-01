@@ -1,4 +1,5 @@
 import * as demo from "./demo-store";
+import { authClient } from "./auth-client";
 import type {
   Booking,
   BookingDraft,
@@ -115,7 +116,11 @@ export async function register(input: RegisterInput): Promise<User> {
 
 export async function googleLogin(): Promise<User | null> {
   if (isDemoMode) return demo.demoGoogleLogin();
-  window.location.href = `${API_BASE_URL}/auth/google`;
+
+  await authClient.signIn.social({
+    provider: "google",
+    callbackURL: window.location.origin,
+  });
   return null;
 }
 
