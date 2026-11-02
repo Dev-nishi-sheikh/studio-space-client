@@ -69,7 +69,7 @@ export function LoginForm() {
     setGoogleLoading(true);
     setError(null);
     try {
-      const user = await googleLogin();
+      const user = await googleLogin(`${window.location.origin}${redirectTo}`);
       if (user) {
         toast.success(`Signed in as ${user.name}`, {
           description: "Google authentication complete.",

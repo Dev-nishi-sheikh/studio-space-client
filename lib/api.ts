@@ -114,12 +114,12 @@ export async function register(input: RegisterInput): Promise<User> {
   return unwrap<User>(payload, "user");
 }
 
-export async function googleLogin(): Promise<User | null> {
+export async function googleLogin(callbackURL?: string): Promise<User | null> {
   if (isDemoMode) return demo.demoGoogleLogin();
 
   await authClient.signIn.social({
     provider: "google",
-    callbackURL: window.location.origin,
+    callbackURL: callbackURL ?? window.location.origin,
   });
   return null;
 }

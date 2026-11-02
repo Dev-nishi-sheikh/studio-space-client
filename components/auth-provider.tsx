@@ -14,7 +14,7 @@ interface AuthContextValue {
   loading: boolean;
   login: (input: LoginInput) => Promise<User>;
   register: (input: RegisterInput) => Promise<User>;
-  googleLogin: () => Promise<User | null>;
+  googleLogin: (callbackURL?: string) => Promise<User | null>;
   logout: () => Promise<void>;
   refresh: () => Promise<void>;
 }
@@ -54,8 +54,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return apiRegister(input);
   }, []);
 
-  const googleLogin = useCallback(async () => {
-    const nextUser = await apiGoogleLogin();
+  const googleLogin = useCallback(async (callbackURL?: string) => {
+    const nextUser = await apiGoogleLogin(callbackURL);
     if (nextUser) {
       setSessionCookie();
       setUser(nextUser);

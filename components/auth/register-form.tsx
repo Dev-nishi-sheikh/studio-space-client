@@ -91,7 +91,7 @@ export function RegisterForm() {
     setGoogleLoading(true);
     setError(null);
     try {
-      const user = await googleLogin();
+      const user = await googleLogin(window.location.origin);
       if (user) {
         toast.success(`Welcome to StudioSpace, ${user.name.split(" ")[0]}`, {
           description: "Your Google account is connected.",
