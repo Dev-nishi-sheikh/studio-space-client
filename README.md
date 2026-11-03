@@ -129,7 +129,8 @@ The client calls these endpoints when `NEXT_PUBLIC_API_URL` is present. All requ
 | `GET` | `/auth/me` | Current user |
 | `POST` | `/auth/logout` | Clear session |
 | `GET` | `/auth/google` | Google OAuth entry point |
-| `GET` | `/studios` | List/filter (`search`, `category`, `maxPrice`, `sort`, `featured`, `limit`) |
+| `GET` | `/studios` | List/filter (`search`, `category`, `maxPrice`, `sort`) |
+| `GET` | `/studios/featured?limit=6` | Top-rated studios for the home page |
 | `GET` | `/studios/:id` | Studio details |
 | `GET` | `/studios/mine` | Listings owned by the signed-in user |
 | `POST` | `/studios` | Create listing (protected, HTTPOnly cookie) |
@@ -138,9 +139,10 @@ The client calls these endpoints when `NEXT_PUBLIC_API_URL` is present. All requ
 | `POST` | `/bookings` | Create booking, status `Pending` (protected) |
 | `GET` | `/bookings/mine` | Current user's bookings |
 | `GET` | `/bookings/:id` | Single booking for invoice |
+| `GET` | `/bookings/availability?studioId=&date=` | Confirmed windows that block a date |
 | `PATCH` | `/bookings/:id/cancel` | Cancel a pending booking |
-| `GET` | `/studios/:id/availability?date=` | Booked windows for a date |
-| `GET` / `POST` | `/wishlist`, `/wishlist/:studioId` | Read/toggle saved studios |
+| `GET` | `/wishlist` | Saved studios for the signed-in user |
+| `POST` | `/wishlist/:studioId/toggle` | Save or remove a studio |
 
 The bundled demo implements the same behaviour locally, including the confirmed-booking overlap check used by Challenge 2.
 
