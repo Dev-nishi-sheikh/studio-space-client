@@ -7,6 +7,7 @@ import { useWishlist } from "@/components/wishlist-provider";
 import type { Studio } from "@/lib/types";
 import { badgeClass, buttonClass } from "@/lib/ui";
 import { cn, formatCurrency } from "@/lib/utils";
+import { IMAGES } from "@/lib/images";
 
 export function StudioCard({
   studio,
@@ -19,6 +20,7 @@ export function StudioCard({
 }) {
   const { isSaved, toggle } = useWishlist();
   const saved = isSaved(studio._id);
+  const image = studio.image?.trim() || IMAGES.loft;
 
   return (
     <article
@@ -30,7 +32,7 @@ export function StudioCard({
       <div className="relative aspect-[4/3] overflow-hidden bg-surface-2">
         <Link href={`/studios/${studio._id}`} aria-label={studio.title} className="block h-full">
           <Image
-            src={studio.image}
+            src={image}
             alt={studio.title}
             fill
             priority={priority}
