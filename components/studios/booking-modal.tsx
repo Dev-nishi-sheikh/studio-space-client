@@ -124,6 +124,7 @@ export function BookingModal({
           date,
           startTime,
           endTime,
+          guests,
           note: note.trim() || undefined,
         },
         user,

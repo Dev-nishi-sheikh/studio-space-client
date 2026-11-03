@@ -297,6 +297,9 @@ export async function demoCreateBooking(draft: BookingDraft, user: User): Promis
   if (draft.date < todayISO()) {
     throw new Error("Pick a booking date from today onwards.");
   }
+  if (!Number.isInteger(draft.guests) || draft.guests < 1 || draft.guests > studio.capacity) {
+    throw new Error(`Choose between 1 and ${studio.capacity} people for this studio.`);
+  }
   if (studio.ownerEmail === user.email) {
     throw new Error("This is your own studio — you don't need to book it.");
   }
@@ -333,6 +336,7 @@ export async function demoCreateBooking(draft: BookingDraft, user: User): Promis
     date: draft.date,
     startTime: draft.startTime,
     endTime: draft.endTime,
+    guests: draft.guests,
     hours,
     subtotal,
     deposit: studio.securityDeposit,

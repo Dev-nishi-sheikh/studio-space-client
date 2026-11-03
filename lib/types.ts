@@ -54,6 +54,7 @@ export interface Booking {
   date: string;
   startTime: string;
   endTime: string;
+  guests: number;
   hours: number;
   subtotal: number;
   deposit: number;
@@ -68,6 +69,7 @@ export interface BookingDraft {
   date: string;
   startTime: string;
   endTime: string;
+  guests: number;
   note?: string;
 }
 
