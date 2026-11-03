@@ -109,7 +109,7 @@ export function LoginForm() {
         {error && (
           <div
             role="alert"
-            className="flex items-start gap-2.5 rounded-xl border border-red-500/25 bg-red-500/10 px-3.5 py-3 text-xs font-medium text-red-600 dark:text-red-400"
+            className="flex w-full items-start gap-2.5 rounded-xl border border-red-500/40 bg-red-500/15 px-3.5 py-3 text-sm font-semibold leading-5 text-red-700 dark:border-red-400/40 dark:bg-red-950/50 dark:text-red-200"
           >
             <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0" />
             {error}
