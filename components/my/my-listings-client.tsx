@@ -18,6 +18,7 @@ import {
 import { toast } from "sonner";
 import { useAuth } from "@/components/auth-provider";
 import { EmptyState } from "@/components/ui/empty-state";
+import { IMAGES } from "@/lib/images";
 import { Modal } from "@/components/ui/modal";
 import { Skeleton } from "@/components/ui/skeleton";
 import { deleteStudio, getMyListings } from "@/lib/api";
@@ -140,7 +141,7 @@ export function MyListingsClient() {
               >
                 <div className="relative aspect-[16/9] overflow-hidden bg-surface-2">
                   <Image
-                    src={studio.image}
+                    src={studio.image?.trim() || IMAGES.loft}
                     alt={studio.title}
                     fill
                     sizes="(max-width: 640px) 100vw, 50vw"
