@@ -81,12 +81,16 @@ npm start
 
 ## 🔑 Examiner test credentials
 
+These accounts are seeded in the MongoDB database used by the deployed API:
+
 | Role | Email | Password |
 | --- | --- | --- |
-| Host — owns 3 listings, has bookings | `harry@studiospace.com` | `Studio123` |
-| Creator — has bookings and a wishlist | `mia@studiospace.com` | `Studio123` |
+| Host — owns listings and receives bookings | `ayesha@studiospace.com` | `Studio123` |
+| Creator — has demo bookings and a wishlist | `demo@studiospace.com` | `Studio123` |
 
-You can also press **Use host demo** on the login page to fill the form. The Google button simulates a Google session in demo mode and redirects to the real OAuth endpoint when an API URL is configured.
+Additional seeded accounts you can sign in with: `marcus@studiospace.com` and `nadia@studiospace.com` (same password).
+
+If you run the app **without** `NEXT_PUBLIC_API_URL` (local demo mode), use the demo-mode accounts instead: `harry@studiospace.com` (host) and `mia@studiospace.com` (creator), both `Studio123`.
 
 Registration is available at `/register`; passwords require an uppercase letter, a lowercase letter and at least 6 characters.
 
