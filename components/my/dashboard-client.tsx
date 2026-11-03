@@ -18,6 +18,7 @@ import {
 import { toast } from "sonner";
 import { useAuth } from "@/components/auth-provider";
 import { useWishlist } from "@/components/wishlist-provider";
+import { IMAGES } from "@/lib/images";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Skeleton } from "@/components/ui/skeleton";
 import { StatusBadge } from "@/components/ui/status-badge";
@@ -321,7 +322,7 @@ export function DashboardClient() {
                 >
                   <div className="relative aspect-[16/10] bg-surface-2">
                     <Image
-                      src={studio.image}
+                      src={studio.image?.trim() || IMAGES.loft}
                       alt={studio.title}
                       fill
                       sizes="(max-width: 640px) 100vw, 33vw"
