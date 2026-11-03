@@ -1,6 +1,6 @@
 # StudioSpace — Peer-to-Peer Creative Studio Marketplace
 
-**Live site:** [https://studio-space-client.vercel.app](https://studio-space-client.vercel.app)
+**Live site:** _Pending deployment — replace this line with your Vercel URL after importing the repo (see [Deployment](#-deployment))._
 
 StudioSpace is a peer-to-peer marketplace for photo studios, sound stages, podcast lounges, music suites and art workshops. Creators discover a room, check the details and live availability, then reserve it by the hour. Hosts list their spaces, manage listings and keep the booking calendar on their own terms.
 
