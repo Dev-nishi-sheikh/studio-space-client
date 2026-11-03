@@ -69,8 +69,11 @@ export function FeaturedStudios() {
 
         {!loading && !error && (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-            {studios.map((studio) => (
-              <StudioCard key={studio._id} studio={studio} />
+            {studios.map((studio, index) => (
+              <StudioCard
+                key={`${studio._id || `${studio.title}-${studio.location}`}-${index}`}
+                studio={studio}
+              />
             ))}
           </div>
         )}
