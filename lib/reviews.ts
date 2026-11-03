@@ -40,13 +40,14 @@ const CATEGORY_NOTES: Record<string, string[]> = {
 };
 
 export function getStudioReviews(studio: Studio): Review[] {
-  const offset = studio._id.split("").reduce((total, char) => total + char.charCodeAt(0), 0);
+  const studioId = studio._id || (studio as Studio & { id?: string }).id || "";
+  const offset = studioId.split("").reduce((total, char) => total + char.charCodeAt(0), 0);
   const notes = CATEGORY_NOTES[studio.category] ?? CATEGORY_NOTES["Photo Studio"];
   return notes.map((text, index) => {
     const author = AUTHORS[(offset + index) % AUTHORS.length];
     return {
-      _id: `${studio._id}-review-${index}`,
-      studioId: studio._id,
+      _id: `${studioId}-review-${index}`,
+      studioId,
       author: author.author,
       avatar: author.avatar,
       rating: index === 2 ? 4 : 5,
